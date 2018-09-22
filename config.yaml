@@ -1,0 +1,40 @@
+
+# REQUIRED
+
+title: Dark Chef Trilogy Character Guide
+
+
+
+# Optional (delete or comment key to remove functionality)
+
+lead: An interactive character guide for the nonexistent <em>Dark Chef Trilogy</em>
+
+welcome: >
+    <p>Hi there! This tool is meant to help you find characters from previous books without having to google it and expose yourself to who knows what spoilers. You can also use the tags to navigate character types.</p>
+
+    <p><strong>Start by choosing up to which book you've read with the slider below.</strong> Everything is book-scoped, so the information will change accordingly.</p>
+
+attribution: >
+    Made by myself. Report code issues to <a href="https://twitter.com/Nosgoroth">Nosgoroth</a>.
+
+
+# Google Analytics key
+#ga: UA-0000000-1
+
+
+
+#A number or "auto"
+maxvolume: auto
+
+# A number, "max" or "store" 
+defaultVolume: store
+
+# all/latest    
+defaultBookmode: all
+
+showBookmodeSelect: false
+
+searchInBlurb: true
+
+# Don't show tag before which book. A set like {"tagname": 9} or "auto"
+tagBooks: "auto"

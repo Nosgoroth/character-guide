@@ -1,0 +1,63 @@
+---
+
+
+# An array of characters. Each character takes the following form:
+#
+#  - name: Foo @5: Bar
+#    book: 5
+#    tags: lorem, ipsum@5, dolor
+#    blurb: This. @5: And also that.
+#
+# Notes on each:
+#   Both "name" and "blurb" are versionable strings (see below).
+#   "tags" is a list of tags, comma-separated.
+#     In the example, haracter has the tags "lorem", "dolor" and,
+#     from volume 5 onwards, also "ipsum".
+#   "book" is a simple number defining the first book the character appears in. It can
+#     be ommited and it defaults to 1.
+#
+# Versionable string:
+#   "This. @5: And also that. @$9: This, that and the other thing."
+#     => It's "This." until volume 5, then it becomes "This. And also that."
+#     => After volume 9 it becomes "This, that and the other thing."
+#
+#   That is to say:
+#     => Use "A @5: B" to have "A" become "A B" after the given volume.
+#     => Use "A @$5: B" to have "A" become "B" after the given volume.
+
+
+
+
+# BOOK 1
+
+
+- name: >
+    Prott Agonist
+    @2: (Prott Rivall)
+  tags: heroParty, darkChef@2
+  blurb: >
+    The main character. A guy that does stuff and opposes the Dark Chefs.
+    @2: He is actually the long lost brother of his archrival, Arche Rivall.
+
+
+- name: May Nheroinne
+  tags: heroParty
+  blurb: Prott's love interest.
+
+- name: Arche Rivall
+  tags: darkChef
+  blurb: A brash guy thaet doesn't like to smile. A Dark Chef.
+
+- name: >
+    Foile
+    @$3: Foilatore Excelsia (Foile)
+  book: 2
+  tags: herosParty, excelsiaRoyalty@3
+  blurb: >
+    A nice guy that joins Prott on his journeys.
+    @3: Actually a prince of the Kingdom of Excelsia
+
+- name: Curatore Excelsia
+  book: 3
+  tags: excelsiaRoyalty, darkChef
+  blurb: The king of the Kingdom of Excelsia. Secretly a Dark Chef.
