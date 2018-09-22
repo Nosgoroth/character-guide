@@ -15,7 +15,7 @@ welcome: >
     <p><strong>Start by choosing up to which book you've read with the slider below.</strong> Everything is book-scoped, so the information will change accordingly.</p>
 
 attribution: >
-    Made by myself. Report code issues to <a href="https://twitter.com/Nosgoroth">Nosgoroth</a>.
+    Made by myself. <a href="https://github.com/Nosgoroth/character-guide">GitHub</a>.
 
 
 # Google Analytics key
