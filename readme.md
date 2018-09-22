@@ -11,3 +11,7 @@
 ## Editing
 
 Just edit your `data.yaml` file to add or modify characters.
+
+### What is yaml?
+
+It's a superset of JSON and it's more user-friendly. [Have a look here](https://learnxinyminutes.com/docs/yaml/).
