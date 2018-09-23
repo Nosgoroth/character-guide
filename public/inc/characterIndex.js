@@ -33,7 +33,7 @@ function parseBlurb(blurb) {
 		0: bs[0].trim()
 	};
 	for (var i = 1; i < bs.length; i++) {
-		var m = bs[i].trim().match(/^(\$?[\d+]): ?(.*)$/);
+		var m = bs[i].trim().match(/^(\$?[\d]+): ?(.*)$/);
 		if (!m) { continue; }
 		if (m[1][0] === "$") {
 			m[1] = parseInt(m[1].slice(1));
