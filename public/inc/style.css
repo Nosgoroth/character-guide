@@ -3,8 +3,8 @@
 }
 
 .chosen-container {
-	min-width: 140px;
-	width: auto !important;
+    min-width: 140px;
+    width: auto !important;
 }
 
 header.header {
@@ -54,9 +54,9 @@ header.header {
 }
 
 #dpResults ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -71,12 +71,18 @@ header.header {
     padding: 9px 10px;
 }
 .character .inner {
-	display: block;
+    display: block;
 }
 .character .name {
-	display: block;
-	font-weight: bold;
+    display: block;
+    font-weight: bold;
     font-size: 1.2em;
+}
+.character .alias {
+    display: block;
+    font-style: italic;
+    font-size: 0.8em;
+    color: #888;
 }
 .character .blurb {
     display: block;

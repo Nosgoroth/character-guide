@@ -61,7 +61,7 @@ function renderParsedBlurbForBook(parsedBlurb, book){
 			}
 		}
 	}
-	return subblurbs.join(" ");
+	return subblurbs.join(" ").replace(/[\s]+/, " ").replace(" ,", ",");
 }
 
 function makeTagReadable(tag) {
@@ -130,6 +130,7 @@ function Character(raw, options){
 	this.book = raw.book ? raw.book : 1;
 	this.blurb = raw.blurb ? parseBlurb(raw.blurb) : parseBlurb("-");
 	this.imgurl = raw.imgurl ? raw.imgurl : null;
+	this.alias = raw.alias ? parseBlurb(raw.alias) : parseBlurb("");
 
 	this.options = jQuery.extend({}, {
 		onTagClick: function(){}
@@ -170,6 +171,7 @@ Character.prototype.render = function(){
 		this.$rendered = jQuery('<li class="character">');
 		var $inner = jQuery('<span class="inner">').appendTo(this.$rendered);
 		this.$name = jQuery('<span class="name">').appendTo($inner);
+		this.$alias = jQuery('<span class="alias">').appendTo($inner);
 		this.$blurb = jQuery('<span class="blurb">').appendTo($inner);
 		
 		this.$tags = jQuery('<span class="tags">').appendTo($inner);
@@ -187,35 +189,22 @@ Character.prototype.getRenderedElement = function(){
 Character.prototype.setRenderByBook = function(book){
 	this.$blurb.text(this.getBlurb(book));
 	this.$name.text(this.getName(book));
+
+	var alias = this.getAlias(book);
+	this.$alias.text("Alias: "+alias).toggle(!!alias);
+
 	for (var i = 0; i < this._tags.length; i++) {
 		this._tags[i].setRenderVisibleForBook(book);
 	}
 }
 Character.prototype.getBlurb = function(book){
 	return renderParsedBlurbForBook(this.blurb, book);
-	/*
-	if (!book) { return this.blurb[0] ? this.blurb[0] : ""; }
-	var subblurbs = [];
-	for (var i = 0; i < book+1; i++) {
-		if (this.blurb[i]) {
-			subblurbs.push(this.blurb[i]);
-		}
-	}
-	return subblurbs.join(" ");
-	*/
 }
 Character.prototype.getName = function(book){
 	return renderParsedBlurbForBook(this.name, book);
-	/*
-	var name = "?";
-	if (!book) { return this.name[0] ? this.name[0] : name; }
-	for (var i = 0; i < book+1; i++) {
-		if (this.name[i]) {
-			name = this.name[i];
-		}
-	}
-	return name;
-	*/
+}
+Character.prototype.getAlias = function(book){
+	return renderParsedBlurbForBook(this.alias, book);
 }
 Character.prototype.getBook = function(){
 	return this.book;
@@ -230,6 +219,8 @@ Character.prototype.isBook = function(book, bookmode){
 Character.prototype.isTextFilter = function(filter, book){
 	if (!filter || typeof filter !== "string") { return true; }
 	if (this.getName(book).toLowerCase().includes(filter)) {
+		return true;
+	} else if (this.getAlias(book).toLowerCase().includes(filter)) {
 		return true;
 	} else if (data.searchInBlurb && this.getBlurb(book).toLowerCase().includes(filter)) {
 		return true
