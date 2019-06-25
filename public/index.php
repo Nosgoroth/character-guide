@@ -69,7 +69,7 @@ require "_common.php";
             </div>
         <? } ?>
         
-        <form class="form-inline">
+        <form id="controls" class="form-inline">
             <div class="form-group book">
                 <label for="book">I've read up to <span class="value">book 1</span></label>
                 <input type="range" class="form-control-range" id="book" />

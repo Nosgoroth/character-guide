@@ -30,19 +30,30 @@ header.header {
     margin-bottom: 5px;
 }
 
+form#controls {
+    align-items: flex-start;
+}
 .form-group {
+}
+.form-inline .form-group {
     margin-right: 12px;
+    flex-flow: column wrap;
+    align-items: flex-start;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 2px;
+}
+.form-group.book {
+    max-width: 70%;
+    width: 300px;
+}
+.form-group.book input {
+    margin: 7px 0;
 }
 .form-group.book .value {
     display: inline;
-    margin-left: 5px;
     font-weight: 500;
-}
-
-.form-group.bookmode label,
-.form-group.tags label,
-.form-group.filter label {
-    margin-right: 6px;
 }
 
 
