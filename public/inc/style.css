@@ -1,3 +1,8 @@
+html, body {
+    background: #333;
+    color: white;
+}
+
 #content {
     padding-bottom: 20px;
 }
@@ -8,14 +13,13 @@
 }
 
 header.header {
-    background: #333;
+    background: #444;
     color: white;
     padding-top: 5px;
 }
 
 .page-header {
     margin: 0 0 18px;
-    border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 .page-header h1 {
     margin-top: 0;
@@ -66,8 +70,12 @@ header.header {
 
 .character {
     display: block;
+    /*
     border: 1px solid rgba(0,0,0, 0.2);
     border-radius: 5px;
+    */
+    background: #444;
+    color: white;
     padding: 9px 10px;
 }
 .character .inner {
@@ -82,7 +90,7 @@ header.header {
     display: block;
     font-style: italic;
     font-size: 0.8em;
-    color: #888;
+    color: #AAA;
 }
 .character .blurb {
     display: block;
@@ -97,11 +105,11 @@ header.header {
 .character .tags .tag {
     display: inline-block;
     margin-right: 5px;
-    color: #888;
+    color: #AAA;
     cursor: pointer;
 }
 .character .tags .tag:hover {
-    color: #444;
+    color: #FFF;
 }
 
 @media (max-width: 991px) {
@@ -145,7 +153,7 @@ footer.footer {
 
 footer.footer {
     padding: 9px 0;
-    background: #333;
+    background: #444;
     color: white;
 }
 footer.footer a,
